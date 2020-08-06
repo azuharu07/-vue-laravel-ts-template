@@ -1,19 +1,33 @@
-import Router from "vue-router"
-import Home from "./views/Home.vue"
-import About from "./views/About.vue";
+import Router from "vue-router";
+import TaskListComponent from "./components/TaskListComponent.vue";
+import TaskShowComponent from "./components/TaskShowComponent.vue";
+import TaskCreateComponent from "./components/TaskCreateComponent.vue";
+import TaskEditComponent from "./components/TaskEditComponent.vue";
 
 export default new Router({
     mode: "history",
     routes: [
         {
-            path: "/",
-            name: "home",
-            component: Home
+            path: "/tasks",
+            name: "task.list",
+            component: TaskListComponent
         },
         {
-            path: "/about",
-            name: "about",
-            component: About
+            path: "/tasks/create",
+            name: "task.create",
+            component: TaskCreateComponent
+        },
+        {
+            path: "/tasks/:taskId",
+            name: "task.show",
+            component: TaskShowComponent,
+            props: true
+        },
+        {
+            path: "/tasks/:taskId/edit",
+            name: "task.edit",
+            component: TaskEditComponent,
+            props: true
         }
     ]
 });
