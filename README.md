@@ -2,6 +2,13 @@
 
 # ローカルサーバー起動
 
+## フロントエンド
+
+```zsh
+yarn
+yarn watch
+```
+
 ## バックエンド
 
 ```zsh
@@ -11,9 +18,11 @@ php artisan key:generate
 php artisan serve
 ```
 
-## フロントエンド
+## DB
+
+SQLite
 
 ```zsh
-yarn
-yarn watch
+touch database/database.sqlite
+php artisan migrate --seed
 ```
